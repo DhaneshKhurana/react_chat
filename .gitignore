@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+#devAssets
+/Assets_chatApp
+
 # production
 /build
 
