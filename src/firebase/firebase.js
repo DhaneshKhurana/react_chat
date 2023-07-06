@@ -13,6 +13,8 @@ const firebaseConfig = {
   storageBucket: 'react-chat-app-92057.appspot.com',
   messagingSenderId: '167453474125',
   appId: '1:167453474125:web:0b2f3cc43aa0313a6e0b04',
+  databaseURL:
+    'https://react-chat-app-92057-default-rtdb.asia-southeast1.firebasedatabase.app/',
 };
 
 // Initialize Firebase
