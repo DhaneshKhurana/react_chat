@@ -16,10 +16,9 @@ export const ProfileProvider = ({ children }) => {
           const userRef = ref(fireDB, `/users/${authObj.uid}`);
           console.log('userRef::', userRef);
           onValue(userRef, snap => {
-            const { name, createdAt } = snap.val();
+            const userInfo = snap.val();
             const data = {
-              name,
-              createdAt,
+              ...userInfo,
               uid: authObj.uid,
               email: authObj.email,
             };

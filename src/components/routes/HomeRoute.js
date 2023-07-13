@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router';
-import HomePage from '../pages/HomePage';
-import { useProfile } from '../logic/contexts/ProfileContext';
+import HomePage from '../../pages/HomePage';
+import { useProfile } from '../../logic/contexts/ProfileContext';
 import { Loader, Placeholder } from 'rsuite';
 
 function HomeRoute() {
