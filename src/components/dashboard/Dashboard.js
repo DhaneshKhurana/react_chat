@@ -1,9 +1,12 @@
-import { Drawer, Button, IconButton, Placeholder } from 'rsuite';
+import { Drawer, Button, IconButton, Placeholder, Divider } from 'rsuite';
 import DashboardIcon from '@rsuite/icons/Dashboard';
 import { useState } from 'react';
 import { useProfile } from '../../logic/contexts/ProfileContext';
 import { AvatarUpload } from './AvatarUploadIcon';
 import { useMediaQuery } from '../../logic/customHooks';
+import { getUserInfoPath, signOutUser } from '../../logic/helper';
+import { EditableInput } from '../customUI/EditableInput';
+import { updateData } from '../../firebase/firedb';
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
@@ -15,6 +18,15 @@ const Dashboard = () => {
     setOpen(true);
     setPlacement(key);
   };
+
+  const nickNameChanged = newName => {
+    console.log('Dashboard:: New Nick name selected', newName);
+    const dataToUpdate = {};
+    const userInfoPath = getUserInfoPath('nickName');
+    dataToUpdate[userInfoPath] = newName;
+    updateData(dataToUpdate);
+  };
+
   return (
     <div className="h-100 pt-2">
       <div>
@@ -29,8 +41,9 @@ const Dashboard = () => {
         onClose={() => setOpen(false)}
       >
         <Drawer.Header>
-          <AvatarUpload />
-          <Drawer.Title>Dashboard</Drawer.Title>
+          {/* <AvatarUpload /> */}
+          <Drawer.Title>Hi, {profile ? profile.name : ''}</Drawer.Title>
+          <Divider />
 
           {/* <Drawer.Actions>
             <Button onClick={() => setOpen(false)}>Cancel</Button>
@@ -40,11 +53,18 @@ const Dashboard = () => {
           </Drawer.Actions> */}
         </Drawer.Header>
         <Drawer.Body>
-          <Placeholder.Paragraph rows={8} />
-          <Placeholder.Paragraph>{profile.name}</Placeholder.Paragraph>
-          <Placeholder.Paragraph>
-            <Button>Sign Out</Button>
-          </Placeholder.Paragraph>
+          <EditableInput initVal="radha" onSave={nickNameChanged} />
+
+          <div className="bottomDiv">
+            <Button
+              appearance="primary"
+              block={true}
+              color="red"
+              onClick={signOutUser}
+            >
+              Sign Out
+            </Button>
+          </div>
         </Drawer.Body>
       </Drawer>
     </div>

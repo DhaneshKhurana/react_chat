@@ -3,7 +3,7 @@ import HomePage from '../../pages/HomePage';
 import { Loader, Placeholder } from 'rsuite';
 import { useProfile } from '../../logic/contexts/ProfileContext';
 
-function SignInRoute() {
+export function SignInRoute() {
   const { profile, isLoading } = useProfile();
 
   if (profile && !isLoading) {
@@ -19,5 +19,3 @@ function SignInRoute() {
     return <SignInPage />;
   }
 }
-
-export default SignInRoute;

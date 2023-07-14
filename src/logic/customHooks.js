@@ -21,10 +21,10 @@ export const useMediaQuery = query => {
   useEffect(() => {
     const queryList = window.matchMedia(query);
     const listener = evt => setMatched(evt.matches);
-    queryList.addEventListener(listener);
+    queryList.addEventListener('change', listener);
 
     return () => {
-      queryList.removeEventListener(listener);
+      queryList.removeEventListener('change', listener);
     };
   }, [query]);
 
