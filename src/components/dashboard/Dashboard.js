@@ -7,6 +7,7 @@ import { useMediaQuery } from '../../logic/customHooks';
 import { getUserInfoPath, signOutUser } from '../../logic/helper';
 import { EditableInput } from '../customUI/EditableInput';
 import { updateData } from '../../firebase/firedb';
+import { SignedAccounts } from './SignedAccounts';
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
@@ -43,16 +44,10 @@ const Dashboard = () => {
         <Drawer.Header>
           {/* <AvatarUpload /> */}
           <Drawer.Title>Hi, {profile ? profile.name : ''}</Drawer.Title>
-          <Divider />
-
-          {/* <Drawer.Actions>
-            <Button onClick={() => setOpen(false)}>Cancel</Button>
-            <Button onClick={() => setOpen(false)} appearance="primary">
-              Confirm
-            </Button>
-          </Drawer.Actions> */}
         </Drawer.Header>
         <Drawer.Body>
+          <SignedAccounts />
+          <Divider />
           <EditableInput initVal="radha" onSave={nickNameChanged} />
 
           <div className="bottomDiv">

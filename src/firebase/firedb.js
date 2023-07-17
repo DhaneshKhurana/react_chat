@@ -25,3 +25,9 @@ export const getUID = () => {
   }
   return null;
 };
+
+export function isConnected(account) {
+  return fireAuth.currentUser.providerData.some(
+    data => data.providerId == account
+  );
+}
