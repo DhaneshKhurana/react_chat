@@ -2,16 +2,16 @@ import { Button, Tag } from 'rsuite';
 import { AiFillFacebook, AiFillGoogleCircle } from 'react-icons/ai';
 import { Icon } from '@rsuite/icons';
 import { useState } from 'react';
-import { isConnected } from '../../firebase/firedb';
 import FacebookOfficialIcon from '@rsuite/icons/legacy/FacebookOfficial';
 import GooglePlusCircleIcon from '@rsuite/icons/legacy/GooglePlusCircle';
-import { linkWithProvider, unlinkAccount } from '../../firebase/firebase';
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { isAccountConnected } from '../../data/dbController';
+import { linkWithProvider, unlinkAccount } from '../../data/authController';
 
 export const SignedAccounts = () => {
   const [accountsConnected, setAccountsConnected] = useState({
-    google: isConnected('google.com'),
-    facebook: isConnected('facebook.com'),
+    google: isAccountConnected('google.com'),
+    facebook: isAccountConnected('facebook.com'),
   });
 
   function onGoogleClose() {

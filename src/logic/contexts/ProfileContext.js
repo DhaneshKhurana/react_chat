@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { fireAuth, fireDB } from '../../firebase/firebase';
-import { onValue, ref, refFromURL } from 'firebase/database';
+import { fireAuth, fireDB } from '../../data/firebase';
+import { onValue, ref } from 'firebase/database';
 
 const ProfileContext = createContext();
 

@@ -5,9 +5,9 @@ import { useProfile } from '../../logic/contexts/ProfileContext';
 import { useMediaQuery } from '../../logic/customHooks';
 import { getUserInfoPath, signOutUser } from '../../logic/helper';
 import { EditableInput } from '../customUI/EditableInput';
-import { updateData } from '../../firebase/firedb';
 import { SignedAccounts } from './SignedAccounts';
 import { AvatarUpload } from './AvatarUpload';
+import { updateData } from '../../data/dbController';
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);

@@ -1,9 +1,8 @@
-import { ref as dbRef, update } from 'firebase/database';
+import { ref as dbRef, set, update } from 'firebase/database';
 import { fireAuth, fireDB } from './firebase';
 import { Message, toaster } from 'rsuite';
 
 export const updateData = async dataToUpdate => {
-  console.log('datatobeupdated ', dataToUpdate);
   try {
     await update(dbRef(fireDB), dataToUpdate);
     console.log('Data updated successfully');
@@ -26,8 +25,20 @@ export const getUID = () => {
   return null;
 };
 
-export function isConnected(account) {
+export function isAccountConnected(account) {
   return fireAuth.currentUser.providerData.some(
     data => data.providerId == account
   );
+}
+
+export async function createRoom(chatRoom) {
+  try {
+    await set(dbRef(fireDB, `/chatRooms/${getUID()}`), chatRoom);
+    toaster.push(<Message type="info">ChatRoom updated successfully</Message>);
+  } catch (error) {
+    console.log('updateData:: Error while updating chat room data', error);
+    toaster.push(
+      <Message type="error">Chat-room Error: {error.message}</Message>
+    );
+  }
 }

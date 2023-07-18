@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { InputGroup } from 'rsuite';
 import CheckIcon from '@rsuite/icons/Check';
 import EditIcon from '@rsuite/icons/Edit';
@@ -12,7 +12,7 @@ export const EditableInput = ({ initVal, onSave, ...props }) => {
   };
 
   const onCheckIconClicked = () => {
-    console.log('On check icon clicked clicked ');
+    //console.log('On check icon clicked clicked ');
     onSave(inputVal);
     setIsEditing(false);
   };

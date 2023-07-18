@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 import AvatarEditor from 'react-avatar-editor';
 import { Button, Modal } from 'rsuite';
-import { uploadImage } from '../../firebase/uploadData';
 import { getUserInfoPath } from '../../logic/helper';
-import { updateData } from '../../firebase/firedb';
 import { AvatarIcon } from './AvatarIcon';
+import { updateData } from '../../data/dbController';
+import { uploadImage } from '../../data/storageController';
 
 export const AvatarUpload = ({ name, avatar }) => {
   const [open, setOpen] = useState(false);

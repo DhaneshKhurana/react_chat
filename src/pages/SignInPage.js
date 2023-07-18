@@ -10,7 +10,7 @@ import {
 } from 'rsuite';
 import FacebookOfficialIcon from '@rsuite/icons/legacy/FacebookOfficial';
 import GooglePlusCircleIcon from '@rsuite/icons/legacy/GooglePlusCircle';
-import { onFBSignIn, onGoogleSignIn } from '../firebase/firebase';
+import { onFBSignIn, onGoogleSignIn } from '../data/authController';
 import '../styles/utility.scss';
 import 'rsuite/dist/rsuite.min.css';
 import { useProfile } from '../logic/contexts/ProfileContext';

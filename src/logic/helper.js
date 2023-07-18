@@ -1,6 +1,6 @@
 import { Message, toaster } from 'rsuite';
-import { fireAuth } from '../firebase/firebase';
-import { getUID } from '../firebase/firedb';
+import { fireAuth } from '../data/firebase';
+import { getUID } from '../data/dbController';
 
 export const getUserInfoPath = fileName => {
   const uid = getUID();
