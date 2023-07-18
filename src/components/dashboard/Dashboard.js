@@ -1,4 +1,4 @@
-import { Drawer, Button, IconButton, Placeholder, Divider } from 'rsuite';
+import { Drawer, Button, IconButton, Divider } from 'rsuite';
 import DashboardIcon from '@rsuite/icons/Dashboard';
 import { useState } from 'react';
 import { useProfile } from '../../logic/contexts/ProfileContext';
@@ -21,10 +21,8 @@ const Dashboard = () => {
   };
 
   const nickNameChanged = newName => {
-    console.log('Dashboard:: New Nick name selected', newName);
-    const dataToUpdate = {};
     const userInfoPath = getUserInfoPath('nickName');
-    dataToUpdate[userInfoPath] = newName;
+    const dataToUpdate = { [userInfoPath]: newName };
     updateData(dataToUpdate);
   };
 
@@ -42,14 +40,16 @@ const Dashboard = () => {
         onClose={() => setOpen(false)}
       >
         <Drawer.Header>
-          {/* <AvatarUpload /> */}
-          <Drawer.Title>Hi, {profile ? profile.name : ''}</Drawer.Title>
+          <Drawer.Title>{profile.name}</Drawer.Title>
         </Drawer.Header>
         <Drawer.Body>
           <SignedAccounts />
           <Divider />
-          <EditableInput initVal="radha" onSave={nickNameChanged} />
-          <AvatarUpload />
+          <EditableInput
+            initVal={profile.nickName ? profile.nickName : profile.name}
+            onSave={nickNameChanged}
+          />
+          <AvatarUpload name={profile.name} avatar={profile.avatar} />
 
           <div className="bottomDiv">
             <Button

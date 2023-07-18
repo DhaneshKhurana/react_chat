@@ -55,6 +55,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.1",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "@babel/plugin-proposal-private-property-in-object": "^7.17.1"
   }
 }

@@ -18,3 +18,12 @@ export const signOutUser = () => {
     toaster.push(<Message type="error">{err.message}</Message>);
   }
 };
+
+export function getNameInitials(name) {
+  const nameArray = name.toUpperCase().split(' ');
+  let initials = '';
+  for (const nm of nameArray) {
+    initials += nm[0];
+  }
+  return initials;
+}

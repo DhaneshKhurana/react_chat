@@ -4,8 +4,9 @@ import { Button, Modal } from 'rsuite';
 import { uploadImage } from '../../firebase/uploadData';
 import { getUserInfoPath } from '../../logic/helper';
 import { updateData } from '../../firebase/firedb';
+import { AvatarIcon } from './AvatarIcon';
 
-export const AvatarUpload = () => {
+export const AvatarUpload = ({ name, avatar }) => {
   const [open, setOpen] = useState(false);
   const [avatarImage, setAvatarImage] = useState(null);
   const avatarEditorRef = useRef();
@@ -34,9 +35,9 @@ export const AvatarUpload = () => {
   };
 
   const uploadAvatarImage = async event => {
+    console.log('AvatarUpload:: image upload event:', event);
     const canvas = avatarEditorRef.current.getImageScaledToCanvas();
     const blobFile = await getBlob(canvas);
-    console.log('teh blob file received from getBlob', blobFile);
     const path = getUserInfoPath('avatar');
     const downloadURL = await uploadImage(blobFile, getUserInfoPath('avatar'));
     updateData({ [path]: downloadURL });
@@ -45,6 +46,11 @@ export const AvatarUpload = () => {
 
   return (
     <div>
+      <AvatarIcon
+        src={avatar}
+        name={name}
+        className="width-200 height-200 img-fullsize font-huge"
+      />
       <label className="d-block cursor-pointer padded">
         Select Avatar
         <input

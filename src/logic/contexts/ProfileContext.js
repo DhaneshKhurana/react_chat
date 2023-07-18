@@ -10,11 +10,9 @@ export const ProfileProvider = ({ children }) => {
 
   useEffect(() => {
     const authUnsub = fireAuth.onAuthStateChanged(authObj => {
-      console.log('Auth Object', authObj);
       if (authObj) {
         try {
           const userRef = ref(fireDB, `/users/${authObj.uid}`);
-          console.log('userRef::', userRef);
           onValue(userRef, snap => {
             const userInfo = snap.val();
             const data = {
@@ -22,7 +20,7 @@ export const ProfileProvider = ({ children }) => {
               uid: authObj.uid,
               email: authObj.email,
             };
-            console.log('data recvd::', data);
+            console.log('ProfileContext:: data recvd::', data);
             setProfile(data);
             setLoading(false);
           });
@@ -34,6 +32,8 @@ export const ProfileProvider = ({ children }) => {
         setLoading(false);
       }
     });
+
+    return authUnsub;
   }, []);
 
   return (
