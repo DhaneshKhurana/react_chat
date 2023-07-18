@@ -2,18 +2,18 @@ import { Drawer, Button, IconButton, Placeholder, Divider } from 'rsuite';
 import DashboardIcon from '@rsuite/icons/Dashboard';
 import { useState } from 'react';
 import { useProfile } from '../../logic/contexts/ProfileContext';
-import { AvatarUpload } from './AvatarUploadIcon';
 import { useMediaQuery } from '../../logic/customHooks';
 import { getUserInfoPath, signOutUser } from '../../logic/helper';
 import { EditableInput } from '../customUI/EditableInput';
 import { updateData } from '../../firebase/firedb';
 import { SignedAccounts } from './SignedAccounts';
+import { AvatarUpload } from './AvatarUpload';
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState();
   const { profile } = useProfile();
-  const isMobile = useMediaQuery('(max-width:992px)');
+  const isMobile = useMediaQuery('(max-width:692px)');
 
   const handleOpen = key => {
     setOpen(true);
@@ -49,6 +49,7 @@ const Dashboard = () => {
           <SignedAccounts />
           <Divider />
           <EditableInput initVal="radha" onSave={nickNameChanged} />
+          <AvatarUpload />
 
           <div className="bottomDiv">
             <Button

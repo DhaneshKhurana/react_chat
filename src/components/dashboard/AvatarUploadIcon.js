@@ -15,7 +15,6 @@ function previewFile(file, callback) {
 }
 
 export const AvatarUpload = () => {
-  const toaster = useToaster();
   const [uploading, setUploading] = useState(false);
   const [fileInfo, setFileInfo] = useState(null);
 
@@ -59,7 +58,7 @@ export const AvatarUpload = () => {
       onUpload={file => onFileUpload(file)}
       onSuccess={(response, file) => {
         setUploading(false);
-        console.log(response);
+        console.log(`${response} received for file ${file}`);
       }}
       onError={err => {
         setUploading(false);
