@@ -4,7 +4,7 @@ export default function ChatRoomItem({ room }) {
   return (
     <div>
       <div className="d-flex justify-content-between align-items-center">
-        <h3 className="text-disappear">{room.name}</h3>
+        <h6 className="text-disappear">{room.roomName}</h6>
         <TimeAgo datetime={new Date()} className="font-normal text-black-45" />
       </div>
       <div>

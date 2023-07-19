@@ -2,7 +2,6 @@ import { useRef, useState, useEffect } from 'react';
 import { Divider } from 'rsuite';
 import Dashboard from '../dashboard/Dashboard';
 import { CreateRoom } from '../chat-room/CreateRoom';
-import ChatRoomItem from '../chat-room/CharRoomItem';
 import ChatRoomList from '../chat-room/ChatRoomList';
 
 const Sidebar = () => {

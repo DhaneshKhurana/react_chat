@@ -27,3 +27,11 @@ export function getNameInitials(name) {
   }
   return initials;
 }
+
+export function getObjectArrayFromData(data) {
+  const retVal = [];
+  for (const key in data) {
+    retVal.push(data[key]);
+  }
+  return retVal;
+}

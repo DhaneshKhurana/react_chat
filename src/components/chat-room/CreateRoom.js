@@ -2,6 +2,7 @@ import { forwardRef } from 'react';
 import { useState } from 'react';
 import { Button, Form, Input, Modal } from 'rsuite';
 import { createRoom } from '../../data/dbController';
+import { serverTimestamp } from 'firebase/database';
 const Textarea = forwardRef((props, ref) => (
   <Input {...props} as="textarea" ref={ref} />
 ));
@@ -15,13 +16,18 @@ export const CreateRoom = () => {
     console.log('The value of form :: ', formModel);
     //const chatRoom = { room: formModel.roomName, desc: formModel.roomDesc };
     //console.log('chat room object', chatRoom);
-    createRoom(formModel);
+    // const timeStamp = Date.now();
+    // console.log('timestamp received:: ', timeStamp);
+    // const room = { [timeStamp]: { ...formModel, roomId: timeStamp } };
+    const room = { ...formModel, roomId: serverTimestamp() };
+    createRoom(room);
     setShowModal(false);
   };
 
   return (
     <div>
       <Button
+        appearance="primary"
         block
         color="green"
         className="mt-3"

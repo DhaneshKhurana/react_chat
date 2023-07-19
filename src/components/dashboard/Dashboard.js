@@ -29,7 +29,12 @@ const Dashboard = () => {
   return (
     <div className="h-100 pt-2">
       <div>
-        <IconButton icon={<DashboardIcon />} onClick={() => handleOpen('left')}>
+        <IconButton
+          appearance="primary"
+          block
+          icon={<DashboardIcon />}
+          onClick={() => handleOpen('left')}
+        >
           Open Dashboard
         </IconButton>
       </div>
