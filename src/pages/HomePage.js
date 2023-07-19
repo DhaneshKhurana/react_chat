@@ -1,14 +1,12 @@
 import { Col, Grid, Row } from 'rsuite';
-import Dashboard from '../components/dashboard/Dashboard';
-import { CreateRoom } from '../components/chat-room/CreateRoom';
+import Sidebar from '../components/sidebar/Sidebar';
 
-export default function HomeRoute() {
+export default function HomePage() {
   return (
     <Grid fluid className="h-100">
-      <Row>
-        <Col xs={24} md={8}>
-          <Dashboard />
-          <CreateRoom />
+      <Row className="h-100">
+        <Col xs={24} md={8} className="h-100">
+          <Sidebar />
         </Col>
       </Row>
     </Grid>
