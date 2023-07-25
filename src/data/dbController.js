@@ -1,4 +1,4 @@
-import { ref as dbRef, onValue, push, set, update } from 'firebase/database';
+import { ref as dbRef, push, set, update } from 'firebase/database';
 import { fireAuth, fireDB } from './firebase';
 import { Message, toaster } from 'rsuite';
 
@@ -45,6 +45,6 @@ export async function createRoom(chatRoom) {
 }
 
 export function getRoomsRef() {
-  const chatRoomsRef = dbRef(fireDB, `/chatRooms/${getUID()}/`);
+  const chatRoomsRef = dbRef(fireDB, `/chatRooms/${getUID()}`);
   return chatRoomsRef;
 }

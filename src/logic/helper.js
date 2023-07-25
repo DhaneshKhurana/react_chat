@@ -30,8 +30,10 @@ export function getNameInitials(name) {
 
 export function getObjectArrayFromData(data) {
   const retVal = [];
-  for (const key in data) {
-    retVal.push(data[key]);
+  if (data) {
+    for (const key in data) {
+      retVal.push(data[key]);
+    }
   }
   return retVal;
 }

@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
 import { Divider } from 'rsuite';
 import Dashboard from '../dashboard/Dashboard';
-import { CreateRoom } from '../chat-room/CreateRoom';
-import ChatRoomList from '../chat-room/ChatRoomList';
+import { CreateRoom } from '../chatRoomList/CreateRoom';
+import ChatRoomList from '../chatRoomList/ChatRoomList';
 
 const Sidebar = () => {
   const topSidebarRef = useRef();

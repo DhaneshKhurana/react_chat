@@ -14,14 +14,11 @@ import { onFBSignIn, onGoogleSignIn } from '../data/authController';
 import '../styles/utility.scss';
 import 'rsuite/dist/rsuite.min.css';
 import { useProfile } from '../logic/contexts/ProfileContext';
-import { Navigate } from 'react-router';
 
 export default function SignInPage() {
-  const { profile, isLoading } = useProfile();
+  const { isLoading } = useProfile();
 
-  if (profile) {
-    return <Navigate to="/" />;
-  } else if (isLoading) {
+  if (isLoading) {
     return (
       <div>
         <Placeholder.Paragraph rows={8} />
