@@ -14,6 +14,7 @@ function assembleMessage(userProfile) {
     author: {
       name: userProfile.name,
       uid: userProfile.uid,
+      createdAt: userProfile.createdAt,
       ...(userProfile.avatar ? { avatar: userProfile.avatar } : {}),
     },
     createdAt: serverTimestamp(),
